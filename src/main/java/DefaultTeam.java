@@ -3,15 +3,11 @@ import stl.algav567.support.gui.Circle;
 import stl.algav567.support.gui.Line;
 
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.List;
 
 /***************************************************************
- * TME 1: calcul de diamètre et de cercle couvrant minimum.    *
- *   - Trouver deux points les plus éloignés d'un ensemble de  *
- *     points donné en entrée.                                 *
- *   - Couvrir l'ensemble de poitns donné en entrée par un     *
- *     cercle de rayon minimum.                                *
- *                                                             *
+ *
  * class Circle:                                               *
  *   - Circle(Point c, int r) constructs a new circle          *
  *     centered at c with radius r.                            *
@@ -29,7 +25,7 @@ import java.util.List;
 public class DefaultTeam implements Algorithms {
 
   // calculDiametre: ArrayList<Point> --> Line
-  //   renvoie une paire de points de la liste, de distance maximum.
+  //   renvoie une pair de points de la liste, de distance maximum.
   public Line calculDiametre(List<Point> points) {
     if (points.size()<3) {
       return null;
@@ -41,7 +37,23 @@ public class DefaultTeam implements Algorithms {
     /*******************
      * PARTIE A ECRIRE *
      *******************/
+    return new Line(p,q);
+  }
 
+  // calculDiametreOptimise: ArrayList<Point> --> Line
+  //   renvoie une pair de points de la liste, de distance maximum.
+
+  public Line calculDiametreOptimise(List<Point> points) {
+    if (points.size()<3) {
+      return null;
+    }
+
+    Point p=points.get(1);
+    Point q=points.get(2);
+
+    /*******************
+     * PARTIE A ECRIRE *
+     *******************/
     return new Line(p,q);
   }
 
@@ -58,7 +70,27 @@ public class DefaultTeam implements Algorithms {
     /*******************
      * PARTIE A ECRIRE *
      *******************/
-
     return new Circle(center,radius);
   }
+
+  // enveloppeConvexe: ArrayList<Point> --> ArrayList<Point>
+  //   renvoie l'enveloppe convexe de la liste.
+  public List<Point> enveloppeConvexe(List<Point> points){
+    if (points.size()<3) {
+      return null;
+    }
+
+    ArrayList<Point> enveloppe = new ArrayList<>();
+
+    enveloppe.add(points.get(0));
+    enveloppe.add(points.get(1));
+    enveloppe.add(points.get(2));
+
+
+    /*******************
+     * PARTIE A ECRIRE *
+     *******************/
+    return points;
+  }
+
 }
